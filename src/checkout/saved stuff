@@ -1,0 +1,71 @@
+            <div className='cart__wrapper'>
+                <h2 className='cart__heading'>Shopping Cart</h2>
+                <div className='cart__contents'>
+                    <div className='cart__item'>
+
+                        <div className='cart__item-wrapper'>
+                            <img className='cart__image' src='https://media.rs-online.com/t_large/R0251918-01.jpg' alt='shopping cart image'/>
+
+                            <div className='cart__item-description'>
+                                <div className='cart__item-description-title' >
+                                    <h1> title </h1>
+                                    <h5> make </h5>
+                                </div>
+                                <div className='cart__item-description-stock' >
+                                     <strong className='in-stock'> Instock </strong>
+                                    <p className='in-stock-cpt'>CPT</p>
+                                    <p className='in-stock-jhb'>JHB</p>
+                                    <p className='in-stock-arrival'>When do I get it?</p>
+                                </div> 
+                                <div className='exchange__details'>
+                                    <p className='exchange1'>Hassle-Free Exchanges & Returns for 30 Days.</p>
+                                    <p className='exchange2'>6-Month Limited Warranty.</p>                  
+                                </div>
+                            </div>
+
+                            <div className='cart__item-option'>
+                                <div className='cart__item-option-price' >
+                                    <h> R299 </h>
+                                    <div> Qty: <select className="number">
+                                                <option value="1" selected>1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4" >4</option>
+                                                <option value="5+">5+</option>
+                                            </select> 
+                                    </div>
+                                </div>
+                                <div className='removal-and-saving'>
+                                    <button className='remove'> <DeleteIcon /> remove</button>
+                                    <button className='wishlist'> <FavoriteIcon /> Move to list</button>                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    
+                    <div className='cart__total'> 
+                        <div className='cart__details'>
+                            <h3 className='cart__details-heading'>Cart Summary</h3>
+                            <div className='cart__details-total-wrapper'>
+                                <div className='cart__details-total'> <strong> TOTAL:</strong><p>(1 item)</p> </div> 
+                                <div className='cart__details-price'> R59</div> 
+                            </div>
+                            <button className='cart__details-button'> Proceed To Checkout</button>
+                            </div>
+                            <div className='cart__promotion-wrapper'>
+                            <div className='cart__promotion-desc'>
+                                <p className='cart__promotion-desc-p1'>Spend <strong>R450 or more</strong> to get</p>
+                                <p className='cart__promotion-desc-p2'> <strong>FREE DELIVERY </strong>. T&Cs apply</p>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+            </div>
