@@ -49,3 +49,9 @@ position: relative;
     padding: 5px;
     text-decoration: none;
 }
+.header__cart-username{
+    margin-right: 30px;
+}
+Link {
+    text-decoration: none;
+}

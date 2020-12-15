@@ -27,6 +27,9 @@ function Header() {
         </Link>
         <Link to='/checkout' className='header__cartLink'>
           <div className='header__cart'>
+          <Link to='/login'>
+          <div className='header__cart-username'>Login</div>
+          </Link>
             <ShoppingCartIcon className='header__cartIcon' />
             <div className='header__cartAmount'> {cart?.length} </div>
           
