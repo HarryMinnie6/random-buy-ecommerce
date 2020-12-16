@@ -1,7 +1,8 @@
 // this is where all the data layer logic goes
 
 export const initialState = {
-    cart: [],   
+    cart: [], 
+    user: null  
 }
 //function for getting the total value of the 
 export const getCartTotal=(cart) => 
