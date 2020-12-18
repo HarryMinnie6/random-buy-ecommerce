@@ -24,7 +24,6 @@ function Subtotal() {
           onClick={(e) => history.push("/payment")}
           className="cart__details-button"
         >
-          {" "}
           Proceed To Checkout
         </button>
       </div>
