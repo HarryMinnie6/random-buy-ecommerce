@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Header/Header";
 import Home from "./Home/Home";
 import Checkout from "./checkout/Checkout";
+import Orders from "./Orders/Orders";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Login/Login";
 import { auth } from "./firebase";
@@ -26,13 +27,13 @@ function App() {
         // the user just logged in / the user was logged in
         dispatch({
           type: "SET_USER",
-          user: authUser
+          user: authUser,
         });
       } else {
         // the user is logged out
         dispatch({
           type: "SET_USER",
-          user: null
+          user: null,
         });
       }
     });
@@ -41,23 +42,27 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/checkout">
+        <Route path='/checkout'>
           <Header />
           <Checkout />
         </Route>
 
-        <Route path="/login">
+        <Route path='/orders'>
+          <Header />
+          <Orders />
+        </Route>
+        <Route path='/login'>
           <Header />
           <Login />
         </Route>
-        <Route path="/payment">
+        <Route path='/payment'>
           <Header />
           <Elements stripe={promise}>
             <Payment />
           </Elements>
         </Route>
 
-        <Route path="/">
+        <Route path='/'>
           <Header />
           <Home />
         </Route>

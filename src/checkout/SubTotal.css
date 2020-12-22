@@ -4,7 +4,10 @@
   flex-direction: column;
   align-items: center;
   /* background-color: gray; */
+  background-color: rgb(255, 247, 233);
+
   height: 100%;
+  
 }
 .cart__details-heading {
   font-size: 20px;

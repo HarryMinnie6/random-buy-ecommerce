@@ -4,5 +4,7 @@
 }
 
 .app{
-  width: 100vw
+  width: 100vw;
+  background-color: rgb(255, 247, 233);
+
 }

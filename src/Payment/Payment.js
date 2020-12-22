@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CheckoutProduct from "../checkout/CheckoutProduct";
 import { useStateValue } from "../StateProvider";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getCartTotal } from "../reducer";
 import axios from "../axios";
+import { db } from "../firebase";
 import "./Payment.css";
 
 function Payment() {
@@ -28,12 +29,14 @@ function Payment() {
       const response = await axios({
         method: "post",
         //stripe expects the total in a currencies subunits
-        url: `/payment/create?total=${getCartTotal(cart) * 100}`
+        url: `/payment/create?total=${getCartTotal(cart) * 100}`,
       });
       setClientSecret(response.data.clientSecret);
     };
     getClientSecret();
   }, [cart]);
+
+  console.log("the secret is", clientSecret);
 
   //-----
   const handleSubmit = async (event) => {
@@ -43,15 +46,30 @@ function Payment() {
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
-          card: elements.getElement(CardElement)
-        }
+          card: elements.getElement(CardElement),
+        },
       })
       .then(({ paymentIntent }) => {
         //paymentIntent = payment confirmation
+
+        // db.collection("users")
+        //   .doc(user?.uid)
+        //   .collection("orders")
+        //   .doc(paymentIntent.id)
+        //   .set({
+        //     cart: cart,
+        //     amount: paymentIntent.amount,
+        //     created: paymentIntent.created
+        //   }); 
+
         setSucceedd(true);
         setError(false);
         setProcessing(false);
-        history.replaceState("/orders");
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
+
+        history.replace("/orders");
       });
   };
 
@@ -60,28 +78,28 @@ function Payment() {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-
+  const [{}, dispatch] = useStateValue();
   return (
-    <div className="payment">
-      <div className="payment__container">
+    <div className='payment'>
+      <div className='payment__container'>
         <h1>
-          Checkout (<Link to="/checkout">{cart?.length} items</Link>)
+          Checkout (<Link to='/checkout'> {cart?.length} items </Link>)
         </h1>
-        <div className="payment__section">
-          <div className="payment__title">
+        <div className='payment__section'>
+          <div className='payment__title'>
             <h3>Delivery Address</h3>
           </div>
-          <div className="payment__address">
+          <div className='payment__address'>
             <p>{user?.email}</p>
-            <p>42069 React lane</p>
+            <p>111 React lane</p>
             <p>Cape Town</p>
           </div>
         </div>
-        <div className="payment__section">
-          <div className="payment__title">
+        <div className='payment__section'>
+          <div className='payment__title'>
             <h3>Review Items and Delivery</h3>
           </div>
-          <div className="payment__items">
+          <div className='payment__items'>
             {cart.map((item) => (
               <CheckoutProduct
                 id={item.id}
@@ -92,13 +110,13 @@ function Payment() {
             ))}
           </div>
         </div>
-        <div className="payment__section">
+        <div className='payment__section'>
           <h3>Payment Method</h3>
-          <div className="payment__details">
-            <div className="cardElement__holder">
+          <div className='payment__details'>
+            <div className='cardElement__holder'>
               <form onSubmit={handleSubmit}>
                 <CardElement onChange={handleChange} />
-                <div className="payment__priceContainer">
+                <div className='payment__priceContainer'>
                   <CurrencyFormat
                     renderText={(value) => (
                       <>

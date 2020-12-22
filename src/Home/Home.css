@@ -4,15 +4,24 @@
     /* align-items: center; */
     justify-content: center;
     width: 100%;
-    height: 100vh;
-    padding-top: 30px;
+    /* height: 100vh; */
+    padding: 30px 0;
+    background-color: rgb(255, 247, 233);
+}
+.home__product-wrapper{
+    width: 85%;
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    /* background-color: blue */
 }
 .home__product-display{
-    padding-top: 30px;
-    justify-self: center;
-    width: 85%;
+    padding: 30px 10px;
+    justify-content: center;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    /* background-color: green */
     
 }
 

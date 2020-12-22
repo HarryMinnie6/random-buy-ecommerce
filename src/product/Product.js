@@ -4,7 +4,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { useStateValue, StateContext } from "../StateProvider";
 
 function Product({ id, title, price, rating, image, discount }) {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ cart}, dispatch] = useStateValue();
   //this function will run when the 'add to cart' button is clicked
   const addToCart = () => {
     dispatch({

@@ -1,5 +1,7 @@
 .payment {
   background-color: white;
+  height: 100%;
+  min-height: fit-content;
 }
 
 .payment__container > h1 {
@@ -11,6 +13,7 @@
 }
 .payment__container > h1 a {
   text-decoration: none;
+  color: black;
 }
 
 .payment__section,
@@ -21,10 +24,40 @@
   margin: 0 20px;
   border: 1px solid rgb(245, 245, 245);
 }
+.payment__section > h3 {
+  margin: 10px;
+}
+.payment__title {
+  margin: 10px;
+}
+.payment__address > p {
+  margin: 5px;
+}
 .cardElement__holder {
   margin: 10px 0;
   width: 50%;
   min-width: 280px;
   height: fit-content;
   border: none;
+  background-color: white;
+}
+.payment__priceContainer {
+  /* background: red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.payment__priceContainer > h3 {
+  margin: 10px;
+}
+.payment__priceContainer > button {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 450px) {
+  .payment__container > h1 {
+    text-align: center;
+    padding: 10px;
+    font-size: 25px;
+  }
 }

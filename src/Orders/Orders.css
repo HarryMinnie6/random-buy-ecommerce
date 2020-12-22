@@ -1,0 +1,13 @@
+.orders{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.checkout__details > h1{
+    margin: 15px 0;
+    
+}
+.orders-description{
+    text-align:center
+}

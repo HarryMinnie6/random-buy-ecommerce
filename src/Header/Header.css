@@ -54,3 +54,26 @@
   flex-direction: column;
   margin-right: 20px;
 }
+@media(max-width: 450px){
+  .header {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid grey;
+  }
+  .header__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    width: 100%;
+    position: relative;
+  }
+  .header__userInfoDisplay {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+  }
+}
